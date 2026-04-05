@@ -1,7 +1,4 @@
-import { Button } from "@/components/ui/button";
-import { title } from "process";
-
-const Homepage = () => {
+const Homepage = async () => {
   return <>salviastore</>;
 };
 
