@@ -14,7 +14,7 @@ const Header = () => {
               alt={`${APP_NAME} logo`}
               width={48}
               height={48}
-              preload={true}
+              priority={true}
             />
             <span className="hidden lg:block font-bold text-2xl ml-3">
               {APP_NAME}
