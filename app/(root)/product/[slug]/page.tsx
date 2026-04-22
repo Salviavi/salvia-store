@@ -2,6 +2,7 @@ import { getProductBySlug } from "@/lib/actions/product.actions";
 import { notFound } from "next/navigation";
 
 import ProductPrice from "@/components/shared/product/product-price";
+import ProductImages from "@/components/shared/product/product-images";
 
 // shadcn components
 import { Badge } from "@/components/ui/badge";
@@ -22,7 +23,10 @@ const ProductDetailsPage = async (props: {
       <section>
         <div className="grid grid-cols-1 md:grid-cols-5">
           {/* Images Column */}
-          <div className="col-span-2">{/* Images Component */}</div>
+          <div className="col-span-2">
+            {/* Images Component */}
+            <ProductImages images={product.images} />
+          </div>
 
           {/* Details Column */}
           <div className="col-span-2 p-4">
@@ -60,10 +64,7 @@ const ProductDetailsPage = async (props: {
                 <div className="mb-4 flex justify-between">
                   <div>Status</div>
                   {product.stock > 0 ? (
-                    <Badge
-                      variant="outline"
-                      className="bg-green-100 border-none"
-                    >
+                    <Badge variant="outline" className="border-green-400">
                       In Stock
                     </Badge>
                   ) : (
