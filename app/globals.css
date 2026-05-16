@@ -156,4 +156,8 @@
   .h3-bold {
     @apply font-bold text-xl lg:text-2xl;
   }
+
+  .link {
+    @apply text-primary hover:underline;
+  }
 }
