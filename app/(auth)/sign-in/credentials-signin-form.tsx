@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useFormStatus } from "react-dom";
 import { useActionState } from "react";
 import { signInWithCredentials } from "@/lib/actions/user.actions";
+import { useSearchParams } from "next/navigation";
 
 const CredentialsSignInForm = () => {
   const [data, action] = useActionState(signInWithCredentials, {
@@ -14,6 +15,10 @@ const CredentialsSignInForm = () => {
     message: "",
   });
 
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get("callbackUrl") || "/";
+
+  // Dynamic sign in button that disabled when form is still being submitted
   const SignInButton = () => {
     const { pending } = useFormStatus();
 
@@ -26,6 +31,7 @@ const CredentialsSignInForm = () => {
 
   return (
     <form action={action}>
+      <input type="hidden" name="callbackurl" value={callbackUrl} />
       <div className="space-y-6">
         <div className="space-y-2">
           <Label htmlFor="email">Email</Label>
